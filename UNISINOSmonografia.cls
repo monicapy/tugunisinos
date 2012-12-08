@@ -1,5 +1,5 @@
 %=======================================================================
-% UNISINOSmonografia v0.1
+% UNISINOSmonografia v0.2
 %
 % Classe LaTeX elaborada com base nas orientações dadas no documento
 % ``GUIA PARA ELABORAÇÃO DE TRABALHOS ACADÊMICOS''
@@ -8,7 +8,7 @@
 % Comentários abaixo colocados entre aspas (`` '') foram
 % extraídos diretamente do documento da biblioteca.
 %
-% Copyright (C) 2011 Rafael Bohrer Ávila
+% Copyright (C) 2011, 2012 Rafael Bohrer Ávila
 %
 % Trechos deste código foram extraídos/adaptados do pacote 'iiufrgs'
 % de classes para documentos do Instituto de Informática da UFRGS,
@@ -34,7 +34,7 @@
 % Identificacao
 %=======================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{UNISINOSmonografia}[2011/06/23 v0.1 Monografias da UNISINOS]
+\ProvidesClass{UNISINOSmonografia}[2012/09/04 v0.2 Monografias da UNISINOS]
 
 %=======================================================================
 % Declaracoes básicas
@@ -327,7 +327,8 @@
 %     ...
 %
 % O comando \appendix tem que ser redefinido para fazer aumentar a
-% indentação à esquerda no sumário.
+% indentação à esquerda no sumário, e também para reformatar os títulos
+% dos capítulos (tem que incluir um hífen...)
 %
 % O comando \annex basicamente chama o comando \appendix passando outro nome.
 %=======================================================================
@@ -336,10 +337,24 @@
 	\renewcommand{\thechapter}{\Alph{chapter}}%
 	\setcounter{tocdepth}{0}%
 	\gdef\@chapapp{\MakeUppercase{#1}\space}%
+	\gdef\@makechapterhead##1{%
+		\reset@font\centerline{%
+			\@chapterfont%
+			\@chapapp\thechapter~--~\MakeUppercase{##1}%
+		}%
+		\addvspace{\baselineskip}
+	}
+	\gdef\@chapter[##1]##2{%
+		\refstepcounter{chapter}%
+		\addcontentsline{toc}{chapter}{%
+			\protect\numberline{\@chapapp\thechapter\hfill--\hfill}##1%
+		}%
+		\@makechapterhead{##2}\@afterheading
+	}
 	\addtocontents{toc}{%
 		\protect
-		\settowidth{\@chapnumindent}{{\sffamily\textbf{\@chapapp}}}
-	  \addtolength{\@chapnumindent}{1.8em}
+		\settowidth{\@chapnumindent}{\textbf{\@chapapp}}
+		\addtolength{\@chapnumindent}{1.8em}
 	}%
 }
 \DeclareRobustCommand{\annex}{\appendix[\annexname]}
@@ -405,12 +420,12 @@
 %=======================================================================
 % Fontes
 %=======================================================================
-\def\@chapterfont{\normalfont\sffamily\bfseries}
-\def\@sectionfont{\normalfont\sffamily\bfseries}
-\def\@subsectionfont{\normalfont\sffamily}
-\def\@subsubsectionfont{\normalfont\sffamily}
-\def\@paragraphfont{\normalfont\sffamily}
-\def\@subparagraphfont{\normalfont\sffamily}
+\def\@chapterfont{\normalfont\bfseries}
+\def\@sectionfont{\normalfont\bfseries}
+\def\@subsectionfont{\normalfont}
+\def\@subsubsectionfont{\normalfont}
+\def\@paragraphfont{\normalfont}
+\def\@subparagraphfont{\normalfont}
 \let\emph\textbf
 
 %=======================================================================
@@ -440,11 +455,13 @@
 		\vbox to 6cm{%
 			\MakeUppercase{\@authorfirst~\@authorlast}\\
 			\vfill
-			\uppercase\expandafter{\@title}\\
-			\@ifundefined{@subtitle}{}{\@subtitle\\}%
+			\textbf{\uppercase\expandafter{\@title}}%
+			\@ifundefined{@subtitle}%
+				{\\}%
+				{:\\\textbf{\uppercase\expandafter{\@subtitle\\}}}%
 		}
 		\vfill
-		\MakeUppercase{\@local}\\
+		\@local\\
 		\@ano\par
 	\endgroup
 }
@@ -465,8 +482,8 @@
 		\vbox to 6cm{%
 			\@authorfirst~\@authorlast\\
 			\vfill
-			\uppercase\expandafter{\@title}\\
-			\@ifundefined{@subtitle}{}{\@subtitle\\}%
+			\textbf{\uppercase\expandafter{\@title}}%
+			\@ifundefined{@subtitle}{\\}{:\\\textbf{\@subtitle\\}}%
 		}
 	\endgroup
 	\vspace{3cm}
@@ -580,8 +597,6 @@
 	\addcontentsline{toc}{chapter}{%
 		\protect\numberline{\@chapapp\thechapter}#1%
 	}%
-	\addtocontents{lof}{\protect\addvspace{10\p@}}%
-	\addtocontents{lot}{\protect\addvspace{10\p@}}%
 	\@makechapterhead{#2}\@afterheading
 }
 \def\@schapter#1{%
@@ -665,9 +680,9 @@
 %=======================================================================
 \long\def\@makecaption#1#2{%
 	\vskip\abovecaptionskip
-	\sbox\@tempboxa{\textbf{#1:} #2}%
+	\sbox\@tempboxa{#1~-- #2}%
 	\ifdim \wd\@tempboxa >\hsize
-		{\textbf{#1:} #2\par}
+		{#1~-- #2\par}
 	\else
 		\global \@minipagefalse
 		\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
@@ -679,8 +694,9 @@
 	\par
 	\addcontentsline{\csname ext@#1\endcsname}{#1}{%
 		\protect%
-		\numberline{\csname fnum@#1\endcsname:}{\ignorespaces #2}%
+		\numberline{\csname fnum@#1\endcsname\hfill--\hfill}{\ignorespaces #2}
 	}%
+	\addtocontents{\csname ext@#1\endcsname}{\protect\addvspace{3\p@}}%
 	\begingroup
 		\@parboxrestore
 		\if@minipage
@@ -734,7 +750,7 @@
 	\def\figurename{Figura}
 	\def\tablename{Tabela}
 	\def\orientadorname{Orientador}
-	\def\coorientadorname{Co-orientador}
+	\def\coorientadorname{Coorientador}
 	\def\ackname{Agradecimentos}
 	\def\listabbrvname{Lista de Abreviaturas}
 	\def\listacrname{Lista de Siglas}

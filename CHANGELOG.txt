@@ -1,3 +1,9 @@
+v0.2 2012/09/19
+===============
+- adaptação para ficar em conformidade com o guia 2012 da biblioteca
+  (www.unisinos.br/biblioteca/images/stories/downloads/guia-biblioteca-2012-v2.pdf)
+- inclusão da classe para artigos
+
 v0.1 2011/06/23
 ===============
 - Versão inicial.

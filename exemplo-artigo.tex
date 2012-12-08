@@ -1,0 +1,268 @@
+%
+% Exemplo LaTeX de artigo UNISINOS
+%
+% Elaborado com base nas orientações dadas no documento
+% ``GUIA PARA ELABORAÇÃO DE TRABALHOS ACADÊMICOS''
+% disponível no site da biblioteca da Unisinos.
+% http://www.unisinos.br/biblioteca
+%
+% Os elementos textuais abaixo são apresentados na ordem em que devem
+% aparecer no documento.  Repare que nem todos são obrigatórios - isso
+% é devidamente indicado em cada caso.
+%
+% Comentários abaixo colocados entre aspas (`` '') foram
+% extraídos diretamente do documento da biblioteca.
+%
+% Este documento é de domínio público.
+%
+
+%=======================================================================
+% Declarações iniciais identificando a classe de documento e
+% selecionando alguns pacotes adicionais.
+%
+% As opções disponíveis (separe-as com vírgulas, sem espaço) são:
+% - twoside: Formata o documento para impressão frente-e-verso
+%   (o default é somente-frente)
+% - english,brazilian,french,german,etc.: idiomas usados no documento.
+%   Deve ser colocado por último o idioma principal.
+%=======================================================================
+\documentclass[twoside,english,brazilian]{UNISINOSartigo}
+\usepackage[utf8]{inputenc} % charset do texto (utf8, latin1, etc.)
+\usepackage[T1]{fontenc} % encoding da fonte (afeta a sep. de sílabas)
+\usepackage{graphicx} % comandos para gráficos e inclusão de figuras
+\usepackage{bibentry} % para inserir refs. bib. no meio do texto
+
+%=======================================================================
+% Escolha do sistema para geração de referências bibliográficas.
+%
+% O default é usar o estilo unisinos.bst.  Comente a definição abaixo
+% e descomente a linha seguinte para usar o estilo do ABNTeX (é
+% necessário ter esse pacote instalado).
+%
+% A vantagem do unisinos.bst é que ele permite o uso de um arquivo .bib
+% seguindo as orientações tradicionais do BibTeX (veja essas orientações
+% em http://ctan.tug.org/tex-archive/biblio/bibtex/contrib/doc/btxdoc.pdf).
+% Entretanto, o estilo não suporta algumas citações mais exóticas como
+% apud.  Para isso, use o ABNTeX, mas esteja ciente de que muitas de
+% suas referências serão incompatíveis com os estilos tradicionais do
+% BibTeX como plain, alpha, ieeetr, entre outros.
+%=======================================================================
+\unisinosbst
+%\usepackage[alf]{abntcite}
+
+%=======================================================================
+% Início do documento.
+%=======================================================================
+\begin{document}
+% Diferentemente do normal, os comandos a seguir devem vir aqui mesmo,
+% e não antes do \begin{document} onde seria o lugar deles. 
+\titulo{Exemplo de Artigo no Padrão da UNISINOS: Versão \LaTeX}
+\autor{Fulano de Tal\footnote{Aluno do curso de Ciência da Computação.  Email: fulano@tal.com}}
+\autor{Beltrano da Silva\footnote{Orientador, professor da Unisinos, doutor em Ciência da Computação pela Universidade de Stanford (1995), Mestre em Ciência da Computação pela Universidade de Calcutá (1983).  Email: professor@unisinos.br}}
+
+%=======================================================================
+% Resumo em Português.
+%
+% A recomendação é para 150 a 250 palavras.
+%=======================================================================
+\begin{abstract}
+Este documento apresenta orientações para uso da classe \LaTeX\ de formatação de artigos para a UNISINOS\@.  Ao mesmo tempo, ele serve como exemplo de uso da classe, demonstrando os principais comandos a serem utilizados, e outras orientações mais gerais de uso do \LaTeX.  Adicionalmente, procuramos incluir no documento algumas orientações sobre a escrita do artigo em si, reunindo dicas e recomendações que contribuem para aumentar a qualidade técnica dos trabalhos acadêmicos.  O Resumo deve conter de 150 a 250~palavras e apresentar o objetivo, o método, os resultados e as conclusões do artigo. Deve ser composto por frases concisas e afirmativas. Recomenda-se o uso de parágrafo único. Deve-se usar o verbo na voz ativa e na terceira pessoa do singular.
+\palavraschave{UNISINOS\@.  ABNT\@.  Formatação de documentos.  \LaTeX.}
+\end{abstract}
+
+%=======================================================================
+% Introdução
+%=======================================================================
+\section{Introdução}
+
+Conforme \citetexto{Hexsel11}, a introdução tem o objetivo de ``\emph{introduzir} o material que vai ser apresentado em mais detalhe nas seções subseqüentes''. Na introdução você deve contextualizar o problema e mostrar por que vale a pena resolvê-lo. Você deve apresentar a solução proposta e mostrar o seu diferencial em relação aos trabalhos relacionados. Observe, porém, que na introdução você deve apenas tratar do O QUÊ e PORQUÊ, sem tratar do como \cite{Hexsel11}, que deve ser explicado na seção que descreve o trabalho desenvolvido.
+
+Geralmente, a introdução tem uma estrutura similar ao resumo e deve apresentar:
+\begin{itemize}
+	\item \textbf{Contexto e motivação:} Aqui você deve apresentar o contexto do trabalho (área de que ele se trata) e uma motivação para trabalhar nesse assunto.
+	\item \textbf{Problema:} Aqui você vai apresentar um problema, uma lacuna, observada na área e que você pretende tratar. Você deve se perguntar aqui: ``Que respostas estou disposto a responder?''. O problema deve ser definido claramente e delimitado em termos de espaço de tempo. Veja que essa parte visa alertar o leitor de que o que você está propondo é uma solução para um problema observado na área. 
+	\item \textbf{Objetivos:} Aqui você deve apresentar os objetivos do seu trabalho. Tome cuidado para não confundir objetivos com atividades.   Faça a si mesmo a pergunta: ``O que pretendo alcançar com a pesquisa?''. Você pode discernir entre objetivos gerais e objetivos específicos:
+	\begin{itemize}
+		\item Objetivo geral --- qual o propósito da pesquisa?
+		\item Objetivos específicos --- abertura do objetivo geral em outros menores (possíveis capítulos).
+	\end{itemize}
+	Veja abaixo um exemplo de objetivo retirado da monografia de~\citetexto{Teixeira09}:
+
+	Com a possibilidade de acesso a base de dados XML gerada a partir do Sistema de Currículos Lattes e a necessidade de melhor reutilizar as informações existentes neste sistema, o presente trabalho tem como objetivo geral permitir o acesso do pesquisador a seus dados através de uma interface mais amigável: o padrão LaTeX. Para isto destacam-se os seguintes objetivos específicos:
+	\begin{alineas}
+		\item identificar e analisar o formato de especificação de currículos da Plataforma Lattes;
+		\item disponibilizar uma ferramenta para a geração de uma representação de dados intermediária a partir do formato especificado;
+		\item implementar a tradução dos dados colhidos em código LaTeX através da utilização da ferramenta criada;
+		\item analisar os resultados obtidos e as alternativas presentes no uso da ferramenta.
+	\end{alineas}
+\end{itemize}
+
+%=======================================================================
+% Escrevendo o Texto
+%=======================================================================
+\section{Escrevendo o Texto}
+Este capítulo apresenta algumas orientações para a escrita do texto.
+
+\subsection{Comandos do \LaTeX}
+Como regra geral, use os comandos tradicionais do \LaTeX\ para formatar seu texto.  Neste documento procuramos demonstrar os comandos mais comumente utilizados em monografias acadêmicas.
+
+Neste capítulo apresentamos alguns exemplos de como colocar figuras e tabelas no seu texto.
+
+\subsection{Ilustrações}
+Aqui são apresentados alguns detalhes sobre o uso de ilustrações.
+
+\subsubsection{Legendas}
+As legendas das figuras devem se encontrar no topo da figura e não abaixo, como usualmente colocado. Abaixo da figura, é obrigatório colocar a fonte (mesmo que a figura tenha sido do próprio autor).
+
+As legendas devem conter o tipo da ilustração (Figura, Tabela, etc), seguido de numeração simples (sem número do capítulo).
+
+Toda figura deve ser citada no texto, como nos exemplos que seguem.
+
+\subsubsection{Figuras}
+A Figura~\ref{fig:escrita} ilustra as fases psicológicas da escrita da dissertação. Você vai se reconhecer no personagem. ;-)
+
+\begin{figure}
+	\caption{Fases psicológicas da escrita da dissertação}
+	\label{fig:escrita}
+	\centering%
+	\begin{minipage}{.8\textwidth}
+		\includegraphics[width=\textwidth]{escrita}
+		\fonte{\citetexto{Cham12}}
+	\end{minipage}
+\end{figure}
+
+\subsubsection{Tabelas}
+A Tabela~\ref{tab:estacoes} é um exemplo de tabela elaborada pelo(a) próprio(a) autor(a).
+
+\begin{table}
+	\caption{Período das estações do ano no Brasil}
+	\label{tab:estacoes}
+	\centering%
+	\begin{minipage}{.6\textwidth}
+		\begin{tabular*}{\textwidth}{ll}
+			\hline
+			\textbf{Meses} & \textbf{Estações do Ano}\\
+			\hline
+			21 de março a 21 de junho & Outono\\
+			21 de junho a 23 de setembro & Inverno\\
+			23 de setembro a 21 de dezembro & Primavera\\
+			21 de dezembro a 21 de março & Verão\\
+			\hline
+		\end{tabular*}
+		\fonte{Elaborada pela autora.}
+	\end{minipage}
+\end{table}
+
+\subsection{Resumo}
+O resumo deve conter de 150 a 250 palavras. No resumo não deve haver citações e indica-se que essa seja a última seção do texto a ser escrita. Veja abaixo uma sugestão de organização e exemplo de resumo de \citetexto{Moro11}.
+
+Sugestão (uma a três linhas para cada item):
+\begin{itemize}
+	\item Contexto geral e específico;
+	\item Questão/problema sendo investigado (propósito do trabalho);
+	\item Estado-da-arte (por que precisa de uma solução nova/melhor);
+	\item Solução (nome da proposta, metodologia básica sem detalhes, quais características respondem as questões iniciais, interpretação dos resultados, conclusões).
+\end{itemize}
+
+Exemplo (SANTOS et al., 2008 apud \citealp{Moro11}):
+\begin{quote}
+CONTEXTO: A Web é abundante em páginas que armazenam  dados de forma implícita. PROBLEMA: Em muitos casos, estes dados estão presentes em textos semiestruturados sem a presença de delimitadores explícitos e organizados em uma estrutura também implícita. SOLUÇÃO: Este artigo apresenta uma nova abordagem para extração em textos semi-estruturados baseada em Modelos de Markov Ocultos (Hidden Markov Models - HMM). ESTADO-DA-ARTE e MÉTODO PROPOSTO: Ao contrário de outros trabalhos baseados em HMM, a abordagem proposta dá ênfase à extração de metadados, além dos dados propriamente ditos. Esta abordagem consiste no uso de uma estrutura aninhada de HMMs, onde um HMM principal identifica os atributos no texto e HMMs internos, um para cada atributo, identificam os dados e metadados. Os HMMs são gerados a partir de um treinamento com uma fração de amostras da base a ser extraída. RESULTADOS: Os experimentos realizados com anúncios de classificados retirados da Web mostram que o processo de extração alcança qualidade acima de 0,97 com a medida F, mesmo se esta fração de treinamento é pequena. 
+\end{quote}
+
+%=======================================================================
+% Exemplos de Citações e Referências Bibliográficas
+%=======================================================================
+\section{Exemplos de Citações e Referências Bibliográficas}
+\nobibliography* % para usar o \bibentry
+Neste capítulo são apresentados exemplos de citações e referências bibliográficas.  Aqui é utilizado o pacote \texttt{bibentry}, que permite a inserção de referências no meio do texto (atenção para a diferença entre citações e referências).
+
+Você vai ver que, neste exemplo, não está sendo usado o estilo de referências bibliográficas do projeto ABNTeX\footnote{http://http://sourceforge.net/projects/abntex}.  Você é completamente livre para usá-lo (veja no início do arquivo .tex como fazer isso).  Os motivos para não usar o ABNTeX neste exemplo são basicamente dois:
+\begin{itemize}
+	\item Para usar o ABNTeX, é necessário instalá-lo em seu sistema \TeX\ primeiro; embora não seja uma tarefa tão complicada, enxergamos como uma dificuldade a mais para o usuário iniciante.  Nosso objetivo aqui é facilitar ao aluno da UNISINOS o uso deste modelo, de modo que basta copiar os arquivos \texttt{UNISINOSmonografia.cls} e \texttt{unisinos.bst} para a pasta onde estão seus arquivos .tex;
+	\item As normas da ABNT são tão complexas que, para atender a todas as variações possíveis de citações e referências, o projeto ABNTeX criou uma série de campos adicionais nas entradas do arquivo .bib.  Embora funcione para o caso ABNT, o efeito colateral de fazer isso é que o seu arquivo .bib será muitas vezes incompatível com os demais estilos tradicionais do BibTeX, como \texttt{plain}, \texttt{alpha}, \texttt{ieeetr}, entre outros.  Por exemplo, em referências a artigos publicados em conferências, o campo \texttt{organization} é usado pelo ABNTeX para definir o nome do evento.  Isso não é padrão e não será reconhecido pelos estilos tradicionais\footnote{Veja como criar seus arquivos .bib no manual do BibTeX, que pode ser encontrado em http://ctan.tug.org/tex-archive/biblio/bibtex/contrib/doc/btxdoc.pdf.}.  Considerando que um dos maiores benefícios do BibTeX é criar um arquivo .bib que pode ser reutilizado pelo resto da vida, nossa estratégia com o \texttt{unisinos.bst} foi tentar aproximar ao máximo a formatação exigida pela ABNT sem implicar na criação de arquivos .bib incompatíveis.  Isso funciona bem na grande maioria dos casos, mas não em todos.  Nesse caso, a saída é usar o ABNTeX ou então alterar manualmente o arquivo .bbl que é gerado ao rodar o comando \texttt{bibtex}.
+\end{itemize}
+
+Em caso de dúvida, siga as orientações do guia da Biblioteca \cite{Biblioteca12} e, se necessário, da norma NBR~6023 \cite{NBR6023:2002}.
+
+\subsection{Citações}
+As citações podem ocorrer de duas formas: com os nomes dos autores inseridos no texto ou não.  Isso implica em uma construção diferente para as frases.  Por exemplo:
+\begin{itemize}
+	\item Com o nome do autor inserido no texto: ``De acordo com \citetexto{Tanenbaum03}, o modelo de referência OSI foi proposto de forma tardia.''
+	\item Sem inserir o autor no texto: ``O modelo de referência OSI foi proposto de forma tardia \cite{Tanenbaum03}.''
+\end{itemize}
+
+\subsection{Livros}
+Seguem alguns exemplos de referências de livros:
+\begin{itemize}
+	\item \bibentry{Buford09}.
+	\item Livro com indicação de edição:\\
+	\bibentry{Kurose10ptbr}.
+\end{itemize}
+
+\subsection{Artigos em Periódicos}
+Os exemplos abaixo ilustram referências a artigos em periódicos.
+\begin{itemize}
+	\item \bibentry{Hayes08}.
+	\item \bibentry{Lawton08}.
+\end{itemize}
+
+\subsection{Artigos em Conferências}
+\begin{itemize}
+	\item \bibentry{Laadan10}.
+	\item \bibentry{Anderson95}.
+\end{itemize}
+
+\subsection{Teses e Dissertações}
+Seguem algumas referências a trabalhos acadêmicos, como teses, dissertações, trabalhos de conclusão de curso, etc.
+\begin{itemize}
+	\item \bibentry{Teixeira09}.
+	\item \bibentry{Flaumann05}.
+\end{itemize}
+
+%=======================================================================
+% Conclusão
+%=======================================================================
+\section{Conclusão}
+Não se esqueça de terminar o artigo com uma conclusão. :-)
+
+%=======================================================================
+% Resumo em língua estrangeira (sim, é aqui mesmo).
+%
+% O idioma usado aqui deve necessariamente aparecer nos parâmetros do
+% \documentclass, no início do documento.
+%=======================================================================
+\begin{otherlanguage}{english}
+\titulo{The Title in English}
+\begin{abstract}
+Este documento apresenta orientações para uso da classe \LaTeX\ de formatação de artigos para a UNISINOS\@.  Ao mesmo tempo, ele serve como exemplo de uso da classe, demonstrando os principais comandos a serem utilizados, e outras orientações mais gerais de uso do \LaTeX.  Adicionalmente, procuramos incluir no documento algumas orientações sobre a escrita da monografia em si, reunindo dicas e recomendações que contribuem para aumentar a qualidade técnica dos trabalhos acadêmicos.  O Resumo deve conter de 150 a 250~palavras e apresentar o objetivo, o método, os resultados e as conclusões do artigo. Deve ser composto por frases concisas e afirmativas. Recomenda-se o uso de parágrafo único. Deve-se usar o verbo na voz ativa e na terceira pessoa do singular.
+\palavraschave{UNISINOS\@.  ABNT\@.  Formatação de documentos.  \LaTeX.}
+\end{abstract}
+\end{otherlanguage}
+
+%=======================================================================
+% Referências
+%=======================================================================
+\bibliography{exemplo}
+
+%=======================================================================
+% Exemplo de Apêndice
+% O Apêndice é utilizado para apresentar material complementar elaborado
+% pelo próprio autor.  Deve seguir as mesmas regras de formatação do
+% corpo principal do documento.
+%=======================================================================
+\appendix
+\section{Informações Complementares}
+
+O Apêndice é o lugar para incluir textos complementares, que não são essenciais para o entendimento do assunto principal da monografia, mas que podem contribuir com informação relevante (por exemplo, uma prova matemática, uma conceituação básica, etc.).  Ele deve seguir o formato normal do documento.
+
+%=======================================================================
+% Exemplo de Anexo
+% O Anexo é utilizado para a ``inclusão de materiais não elaborados pelo
+% próprio autor, como cópias de artigos, manuais, folders, balancetes, etc.
+% e não precisam estar em conformidade com o modelo''.
+%=======================================================================
+\annex
+\section{Balancete da Empresa XY}
+
+Existe diferença entre os Apêndices e os Anexos.  Os apêndices trazem informação escrita pelo próprio autor do trabalho, incorporando-se ao formato do artigo como um todo.  Já um anexo é um material à parte, definido/publicado por si só, e que o autor julga conveniente ser apresentado juntamente com o artigo.  Normalmente também vai apresentar formato próprio, como um folder, uma planilha, etc.
+\end{document}
