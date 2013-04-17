@@ -14,7 +14,7 @@ Os arquivos necessários são:
 Para usá-los, basta copiar os dois arquivos para a pasta onde se encontra
 o documento .tex principal.
 
-Dentro do pacote há também exemploa de uso, compostos pelos arquivos:
+Dentro do pacote há também exemplos de uso, compostos pelos arquivos:
 - exemplo-monografia.tex: arquivo do documento principal (que contém o texto), para o caso de monografias;
 - exemplo-artigo.tex: arquivo do documento principal (que contém o texto), para o caso de artigos;
 - exemplo.bib: base de referências bibliográficas;
