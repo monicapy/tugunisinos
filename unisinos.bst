@@ -7,7 +7,7 @@
 % Baseado no estilo "abnt.bst" do Grupo de Usuários TeX da UFRGS
 % conforme observação abaixo.
 %
-% Copyright (C) 2011 Rafael Bohrer Ávila
+% Copyright (C) 2011,2014 Rafael Bohrer Ávila
 %
 % Segue a documentação do arquivo original:
 %
@@ -344,6 +344,10 @@ FUNCTION {format.names}
 	{
 		duplicate$ duplicate$ i "{ll}{~jj}" format.name$
 		duplicate$ "others" =
+				n #3 >
+				i #2 =
+			and
+		or
 		{
 			pop$ pop$ names " et~al." *
 			n 'i :=
