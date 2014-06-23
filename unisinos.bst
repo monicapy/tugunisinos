@@ -477,8 +477,8 @@ FUNCTION {format.family.names.all}
 FUNCTION {format.title}
 {
         swap$
-                {extract.subtitle emphasize}
-                {extract.subtitle}
+                {extract.subtitle "t" change.case$ emphasize}
+                {extract.subtitle "t" change.case$}
         if$
         swap$ "l" change.case$ *
 }
