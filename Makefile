@@ -19,5 +19,8 @@ install:
 	install -m 644 ${ARQ_BST} ${PREFIX_BST}
 
 clean:
-	rm -f *~ *.{log,aux,dvi}
+	rm -f *~ *.{log,aux,dvi,blg,lot,lof,out,toc}
 #	bash -c 'rm -f *~ *.{log,aux,dvi} exemplo*pdf *synctex.gz'
+
+distclean: clean
+	rm -f *.bbl
