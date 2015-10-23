@@ -451,6 +451,7 @@
 			\uppercase\expandafter{\@unidade}\\
 			\@ifundefined{@curso}{}{\uppercase\expandafter{\@curso}\\}%
 			\@ifundefined{@nivel}{}{\uppercase\expandafter{\@nivel}\\}%
+			\vfill
 		}
 		\vbox to 6cm{%
 			\MakeUppercase{\@authorfirst~\@authorlast}\\
