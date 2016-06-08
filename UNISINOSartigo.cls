@@ -49,21 +49,6 @@
 \onehalfspacing
 
 %=======================================================================
-% Comandos para definições principais.
-% Exemplos de uso:
-%   \autor{Nome Completo}{Mini-CV}
-%=======================================================================
-\DeclareRobustCommand{\titulo}[1]{
-	\clearpage\thispagestyle{empty}%
-	\noindent%
-	\parbox[t]{\textwidth}{%
-		\centering%
-		\textbf{\MakeUppercase{#1}}%
-	}\par
-	\vspace{3ex}
-}
-
-%=======================================================================
 % Environment para redação do resumo em Português e no idioma
 % estrangeiro.
 %
