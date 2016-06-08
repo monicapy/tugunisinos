@@ -418,6 +418,14 @@
 	{\noindent\centering\textbf{\@address}\par}%
 	{\noindent\centering\textbf{\@date}\par}%
 	\cleardoublepage%
+	\vspace*{4.4\baselineskip}%
+	{\noindent\centering\@author\par}%
+	\vspace*{11\baselineskip}%
+	{\noindent\centering\MakeUppercase{\@title}\par}%
+	\vfill%
+	{\noindent\centering\@address\par}%
+	{\noindent\centering\@date\par}%
+	\cleardoublepage%
 	\pagestyle{UNISINOSartigo}\pagenumbering{arabic}\setcounter{page}{1}%
 	\@formattitle{\@title}%
 	\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
