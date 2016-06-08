@@ -388,12 +388,7 @@
 % Comandos para Formatação ---------------------------------------------
 \newcommand{\@formattitle}[1]{%
 	\clearpage\thispagestyle{empty}%
-	\noindent%
-	\parbox[t]{\textwidth}{%
-		\centering%
-		\textbf{\MakeUppercase{#1}}%
-	}%
-	\par%
+	{\noindent\centering\textbf{\MakeUppercase{#1}}\par}%
 	\vspace{3ex}%
 }
 
