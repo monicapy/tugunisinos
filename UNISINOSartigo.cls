@@ -410,6 +410,10 @@
 	{\noindent\centering\textbf{\MakeUppercase{Universidade do Vale do Rio dos Sinos --- UNISINOS}}\par}%
 	{\noindent\centering\textbf{\MakeUppercase{Unidade Acad\^emica de Gradua\c{c}\~{a}o}}\par}%
 	{\noindent\centering\textbf{\MakeUppercase{\@course}}\par}%
+	\vspace*{2\baselineskip}%
+	{\noindent\centering\textbf{\MakeUppercase{\@author}}\par}%
+	\vspace*{11\baselineskip}%
+	{\noindent\centering\textbf{\MakeUppercase{\@title}}\par}%
 	\vfill%
 	{\noindent\centering\textbf{\@address}\par}%
 	{\noindent\centering\textbf{\@date}\par}%
