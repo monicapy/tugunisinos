@@ -62,9 +62,6 @@
 	}\par
 	\vspace{3ex}
 }
-\DeclareRobustCommand{\autor}[1]{%
-	{\raggedleft	#1\par}
-}
 
 %=======================================================================
 % Environment para redação do resumo em Português e no idioma
@@ -388,6 +385,7 @@
 % Capa
 %=======================================================================
 
+% Comandos para Configuração -------------------------------------------
 \newcommand{\authorinfo}[1]{%
 \def\@authorinfo{#1}
 }
@@ -398,15 +396,26 @@
 \def\@advisorinfo{#1}
 }
 
-\renewcommand{\maketitle}{%
+% Comandos para Formatação ---------------------------------------------
+\newcommand{\@formattitle}[1]{%
 	\clearpage\thispagestyle{empty}%
 	\noindent%
 	\parbox[t]{\textwidth}{%
 		\centering%
-		\textbf{\MakeUppercase{\@title}}%
+		\textbf{\MakeUppercase{#1}}%
 	}%
 	\par%
 	\vspace{3ex}%
+}
+
+% Comandos para Processamento ------------------------------------------
+\newcommand{\othertitle}[1]{%
+	\@formattitle{#1}
+}
+
+% Redefinições ---------------------------------------------------------
+\renewcommand{\maketitle}{%
+	\@formattitle{\@title}
 	{\raggedleft\@author\footnote\@authorinfo\par}%
 	{\raggedleft\@advisor\footnote\@advisorinfo\par}%
 }
