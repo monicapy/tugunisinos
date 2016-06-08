@@ -400,7 +400,10 @@
 
 % Redefinições ---------------------------------------------------------
 \renewcommand{\maketitle}{%
-	\@formattitle{\@title}
-	{\raggedleft\@author\footnote\@authorinfo\par}%
-	{\raggedleft\@advisor\footnote\@advisorinfo\par}%
+	\@formattitle{\@title}%
+	\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+	{\raggedleft\@author\footnote[1]\@authorinfo\par}%
+	{\raggedleft\@advisor\footnote[7]\@advisorinfo\par}%
+	\renewcommand{\thefootnote}{\arabic{footnote}}%
+	\setcounter{footnote}{0}%
 }
