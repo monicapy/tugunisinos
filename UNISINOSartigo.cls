@@ -387,8 +387,9 @@
 \newcommand{\address}[1]{%
 \def\@address{#1}
 }
-\newcommand{\advisor}[1]{%
-\def\@advisor{#1}
+\newcommand{\advisor}[2][Prof.]{%
+\def\@advisordegree{#1}
+\def\@advisor{#2}
 }
 \newcommand{\advisorinfo}[1]{%
 \def\@advisorinfo{#1}
@@ -425,8 +426,10 @@
 	{\noindent\centering\@author\par}%
 	\vspace*{11\baselineskip}%
 	{\noindent\centering\MakeUppercase{\@title}\par}%
-	\vspace*{3\baselineskip}%
-	{\pretolerance=10000\setlength\leftskip{80mm}\noindent{Artigo apresentado como requisito parcial para obten\c{c}\~{a}o do t\'itulo de \@degree\ pelo \@course\ da Universidade do Vale do Rio dos Sinos -- UNISINOS}\par}
+	\vspace*{4\baselineskip}%
+	{\pretolerance=10000\setlength\leftskip{.5\textwidth}\noindent{Artigo apresentado como requisito parcial para obten\c{c}\~{a}o do t\'itulo de \@degree\ pelo \@course\ da Universidade do Vale do Rio dos Sinos -- UNISINOS}\par}%
+	\vspace*{2\baselineskip}%
+	{\raggedleft Orientador: \@advisordegree\ \@advisor\par}%
 	\vfill%
 	{\noindent\centering\@address\par}%
 	{\noindent\centering\@date\par}%
