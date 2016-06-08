@@ -413,7 +413,7 @@
 	\vfill%
 	{\noindent\centering\textbf{\@address}\par}%
 	{\noindent\centering\textbf{\@date}\par}%
-	\clearpage%
+	\cleardoublepage%
 	\pagestyle{UNISINOSartigo}\pagenumbering{arabic}\setcounter{page}{1}%
 	\@formattitle{\@title}%
 	\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
