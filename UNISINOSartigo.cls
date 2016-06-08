@@ -387,6 +387,17 @@
 %=======================================================================
 % Capa
 %=======================================================================
+
+\newcommand{\authorinfo}[1]{%
+\def\@authorinfo{#1}
+}
+\newcommand{\advisor}[1]{%
+\def\@advisor{#1}
+}
+\newcommand{\advisorinfo}[1]{%
+\def\@advisorinfo{#1}
+}
+
 \renewcommand{\maketitle}{%
 	\clearpage\thispagestyle{empty}%
 	\noindent%
@@ -396,4 +407,6 @@
 	}%
 	\par%
 	\vspace{3ex}%
+	{\raggedleft\@author\footnote\@authorinfo\par}%
+	{\raggedleft\@advisor\footnote\@advisorinfo\par}%
 }
