@@ -383,3 +383,17 @@
 	\def\palavraschavename{Keywords}
 	\def\fontename{Source}
 }
+
+%=======================================================================
+% Capa
+%=======================================================================
+\renewcommand{\maketitle}{%
+	\clearpage\thispagestyle{empty}%
+	\noindent%
+	\parbox[t]{\textwidth}{%
+		\centering%
+		\textbf{\MakeUppercase{\@title}}%
+	}%
+	\par%
+	\vspace{3ex}%
+}
