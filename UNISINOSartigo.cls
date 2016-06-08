@@ -46,6 +46,7 @@
 \RequirePackage{times}
 \RequirePackage{indentfirst}
 \RequirePackage{setspace}
+\RequirePackage[hang]{footmisc}
 \onehalfspacing
 
 %=======================================================================
@@ -208,6 +209,9 @@
 	\addtolength{\textwidth}{-\evensidemargin}
 \addtolength{\oddsidemargin}{-1in}
 \addtolength{\evensidemargin}{-1in}
+
+% ajuste de outras medidas
+\setlength\footnotemargin{10pt}
 
 % indentação dos parágrafos
 % 1,25 cm fica feio :-(
