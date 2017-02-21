@@ -216,7 +216,7 @@
 	\addtolength{\textheight}{-20mm}
 \setlength{\topskip}{0pt}
 \addtolength{\topmargin}{-1in}
-\flushbottom
+\raggedbottom
 
 % ajuste das medidas horizontais
 \setlength{\oddsidemargin}{30mm}
