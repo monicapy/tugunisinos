@@ -46,7 +46,7 @@
 \RequirePackage{times}
 \RequirePackage{indentfirst}
 \RequirePackage{setspace}
-\onehalfspacing
+\linespread{1.5}
 
 %=======================================================================
 % Comandos para definições principais.
