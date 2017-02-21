@@ -51,26 +51,14 @@
 %\usepackage[alf]{abntcite}
 
 %=======================================================================
-% Informações Pessoais
-%=======================================================================
-\title{Exemplo de Artigo no Padrão da UNISINOS: Versão \LaTeX}
-
-\author{Fulano de Tal}
-\authorinfo{Aluno do curso de Ciência da Computação. Email: fulano@tal.com}
-\degree{Bacharel em Ciência da Computação}
-\course{Curso de Ciência da Computação}
-\address{São Leopoldo}
-\date{2016}
-
-\advisor[Prof. Dr.]{Beltrano da Silva}
-\advisorinfo{Orientador, professor da Unisinos, doutor em Ciência da Computação pela Universidade de Stanford (1995), Mestre em Ciência da Computação pela Universidade de Calcutá (1983). Email: professor@unisinos.br}
-
-%=======================================================================
 % Início do documento.
 %=======================================================================
 \begin{document}
-
-\maketitle
+% Diferentemente do normal, os comandos a seguir devem vir aqui mesmo,
+% e não antes do \begin{document} onde seria o lugar deles. 
+\titulo{Exemplo de Artigo no Padrão da UNISINOS: Versão \LaTeX}
+\autor{Fulano de Tal\footnote{Aluno do curso de Ciência da Computação.  Email: fulano@tal.com}}
+\autor{Beltrano da Silva\footnote{Orientador, professor da Unisinos, doutor em Ciência da Computação pela Universidade de Stanford (1995), Mestre em Ciência da Computação pela Universidade de Calcutá (1983).  Email: professor@unisinos.br}}
 
 %=======================================================================
 % Resumo em Português.
@@ -244,7 +232,7 @@ Não se esqueça de terminar o artigo com uma conclusão. :-)
 % \documentclass, no início do documento.
 %=======================================================================
 \begin{otherlanguage}{english}
-\othertitle{The Title in English}
+\titulo{The Title in English}
 \begin{abstract}
 Este documento apresenta orientações para uso da classe \LaTeX\ de formatação de artigos para a UNISINOS\@.  Ao mesmo tempo, ele serve como exemplo de uso da classe, demonstrando os principais comandos a serem utilizados, e outras orientações mais gerais de uso do \LaTeX.  Adicionalmente, procuramos incluir no documento algumas orientações sobre a escrita da monografia em si, reunindo dicas e recomendações que contribuem para aumentar a qualidade técnica dos trabalhos acadêmicos.  O Resumo deve conter de 150 a 250~palavras e apresentar o objetivo, o método, os resultados e as conclusões do artigo. Deve ser composto por frases concisas e afirmativas. Recomenda-se o uso de parágrafo único. Deve-se usar o verbo na voz ativa e na terceira pessoa do singular.
 \palavraschave{UNISINOS\@.  ABNT\@.  Formatação de documentos.  \LaTeX.}
