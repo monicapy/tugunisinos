@@ -43,10 +43,11 @@
 \ProcessOptions\relax
 \LoadClass[a4paper,12pt]{article}
 \RequirePackage{babel}
-\RequirePackage{times}
+\RequirePackage{helvet}
 \RequirePackage{indentfirst}
 \RequirePackage{setspace}
 \onehalfspacing
+\renewcommand{\familydefault}{\sfdefault}
 
 %=======================================================================
 % Comandos para definições principais.
