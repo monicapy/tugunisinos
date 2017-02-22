@@ -49,6 +49,7 @@
 \RequirePackage{newfloat}
 \renewcommand{\familydefault}{\sfdefault}
 \linespread{1.5}
+\RequirePackage[hang]{footmisc}
 
 %=======================================================================
 % Environment para redação do resumo em Português e no idioma
@@ -215,6 +216,9 @@
 	\addtolength{\textwidth}{-\evensidemargin}
 \addtolength{\oddsidemargin}{-1in}
 \addtolength{\evensidemargin}{-1in}
+
+% ajuste de outras medidas
+\setlength\footnotemargin{10pt}
 
 % indentação dos parágrafos
 % 1,25 cm fica feio :-(
