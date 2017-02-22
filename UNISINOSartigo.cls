@@ -46,6 +46,7 @@
 \RequirePackage{helvet}
 \RequirePackage{indentfirst}
 \RequirePackage{setspace}
+\RequirePackage{newfloat}
 \onehalfspacing
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -329,6 +330,11 @@
 \setlength{\abovecaptionskip}{\baselineskip}
 
 %=======================================================================
+% Ambientes Adicionais
+%=======================================================================
+\DeclareFloatingEnvironment{board}
+
+%=======================================================================
 % Definições dependentes do idioma.
 %=======================================================================
 \@namedef{captionsbrazilian}{
@@ -356,6 +362,7 @@
 	\def\annexname{Anexo}
 	\def\palavraschavename{Palavras-chave}
 	\def\fontename{Fonte}
+	\def\boardname{Quadro}
 }
 
 \@namedef{captionsenglish}{
@@ -383,4 +390,5 @@
 	\def\annexname{Annex}
 	\def\palavraschavename{Keywords}
 	\def\fontename{Source}
+	\def\boardname{Board}
 }
