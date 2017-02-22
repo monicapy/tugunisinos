@@ -197,6 +197,11 @@
 	\DeclareRobustCommand{\citetexto}[2][]{\citet*[##1]{##2}}
 }
 
+%=======================================================================
+% Macro para Facilitar Escrita de Palavras Estrangeiras
+%=======================================================================
+\newcommand{\foreign}[2]{\textit{\foreignlanguage{#1}{#2}}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FIM DOS COMANDOS PARA USUÁRIOS
 % As definições abaixo servem somente para colocar o documento dentro
