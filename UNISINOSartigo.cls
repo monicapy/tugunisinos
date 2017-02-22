@@ -43,28 +43,13 @@
 \ProcessOptions\relax
 \LoadClass[a4paper,12pt]{article}
 \RequirePackage{babel}
-\RequirePackage{times}
+\RequirePackage{helvet}
 \RequirePackage{indentfirst}
 \RequirePackage{setspace}
-\onehalfspacing
-
-%=======================================================================
-% Comandos para definições principais.
-% Exemplos de uso:
-%   \autor{Nome Completo}{Mini-CV}
-%=======================================================================
-\DeclareRobustCommand{\titulo}[1]{
-	\clearpage\thispagestyle{empty}%
-	\noindent%
-	\parbox[t]{\textwidth}{%
-		\centering%
-		\textbf{\MakeUppercase{#1}}%
-	}\par
-	\vspace{3ex}
-}
-\DeclareRobustCommand{\autor}[1]{%
-	{\raggedleft	#1\par}
-}
+\RequirePackage{newfloat}
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{1.5}
+\RequirePackage[hang]{footmisc}
 
 %=======================================================================
 % Environment para redação do resumo em Português e no idioma
@@ -195,6 +180,11 @@
 	\DeclareRobustCommand{\citetexto}[2][]{\citet*[##1]{##2}}
 }
 
+%=======================================================================
+% Macro para Facilitar Escrita de Palavras Estrangeiras
+%=======================================================================
+\newcommand{\foreign}[2]{\textit{\foreignlanguage{#1}{#2}}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FIM DOS COMANDOS PARA USUÁRIOS
 % As definições abaixo servem somente para colocar o documento dentro
@@ -216,7 +206,7 @@
 	\addtolength{\textheight}{-20mm}
 \setlength{\topskip}{0pt}
 \addtolength{\topmargin}{-1in}
-\flushbottom
+\raggedbottom
 
 % ajuste das medidas horizontais
 \setlength{\oddsidemargin}{30mm}
@@ -226,6 +216,9 @@
 	\addtolength{\textwidth}{-\evensidemargin}
 \addtolength{\oddsidemargin}{-1in}
 \addtolength{\evensidemargin}{-1in}
+
+% ajuste de outras medidas
+\setlength\footnotemargin{10pt}
 
 % indentação dos parágrafos
 % 1,25 cm fica feio :-(
@@ -328,6 +321,11 @@
 \setlength{\abovecaptionskip}{\baselineskip}
 
 %=======================================================================
+% Ambientes Adicionais
+%=======================================================================
+\DeclareFloatingEnvironment{board}
+
+%=======================================================================
 % Definições dependentes do idioma.
 %=======================================================================
 \@namedef{captionsbrazilian}{
@@ -355,6 +353,7 @@
 	\def\annexname{Anexo}
 	\def\palavraschavename{Palavras-chave}
 	\def\fontename{Fonte}
+	\def\boardname{Quadro}
 }
 
 \@namedef{captionsenglish}{
@@ -382,4 +381,78 @@
 	\def\annexname{Annex}
 	\def\palavraschavename{Keywords}
 	\def\fontename{Source}
+	\def\boardname{Board}
+}
+
+%=======================================================================
+% Capa
+%=======================================================================
+
+% Comandos para Configuração -------------------------------------------
+\newcommand{\authorinfo}[1]{%
+\def\@authorinfo{#1}
+}
+\newcommand{\degree}[1]{%
+\def\@degree{#1}
+}
+\newcommand{\course}[1]{%
+\def\@course{#1}
+}
+\newcommand{\address}[1]{%
+\def\@address{#1}
+}
+\newcommand{\advisor}[2][Prof.]{%
+\def\@advisordegree{#1}
+\def\@advisor{#2}
+}
+\newcommand{\advisorinfo}[1]{%
+\def\@advisorinfo{#1}
+}
+
+% Comandos para Formatação ---------------------------------------------
+\newcommand{\@formattitle}[1]{%
+	\clearpage\thispagestyle{empty}%
+	{\noindent\centering\textbf{\MakeUppercase{#1}}\par}%
+	\vspace{3ex}%
+}
+
+% Comandos para Processamento ------------------------------------------
+\newcommand{\othertitle}[1]{%
+	\@formattitle{#1}
+}
+
+% Redefinições ---------------------------------------------------------
+\renewcommand{\maketitle}{%
+	\clearpage%
+	\pagestyle{empty}\pagenumbering{roman}\setcounter{page}{1}%
+	{\noindent\centering\textbf{\MakeUppercase{Universidade do Vale do Rio dos Sinos -- UNISINOS}}\par}%
+	{\noindent\centering\textbf{\MakeUppercase{Unidade Acad\^emica de Gradua\c{c}\~{a}o}}\par}%
+	{\noindent\centering\textbf{\MakeUppercase{\@course}}\par}%
+	\vspace*{2\baselineskip}%
+	{\noindent\centering\textbf{\MakeUppercase{\@author}}\par}%
+	\vspace*{11\baselineskip}%
+	{\noindent\centering\textbf{\MakeUppercase{\@title}}\par}%
+	\vfill%
+	{\noindent\centering\textbf{\@address}\par}%
+	{\noindent\centering\textbf{\@date}\par}%
+	\cleardoublepage%
+	\vspace*{4.4\baselineskip}%
+	{\noindent\centering\@author\par}%
+	\vspace*{11\baselineskip}%
+	{\noindent\centering\MakeUppercase{\@title}\par}%
+	\vspace*{4\baselineskip}%
+	{\pretolerance=10000\setlength\leftskip{.5\textwidth}\noindent{Artigo apresentado como requisito parcial para obten\c{c}\~{a}o do t\'itulo de \@degree\ pelo \@course\ da Universidade do Vale do Rio dos Sinos -- UNISINOS}\par}%
+	\vspace*{2\baselineskip}%
+	{\raggedleft Orientador: \@advisordegree\ \@advisor\par}%
+	\vfill%
+	{\noindent\centering\@address\par}%
+	{\noindent\centering\@date\par}%
+	\cleardoublepage%
+	\pagestyle{UNISINOSartigo}\pagenumbering{arabic}\setcounter{page}{1}%
+	\@formattitle{\@title}%
+	\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+	{\raggedleft\@author\footnote[1]\@authorinfo\par}%
+	{\raggedleft\@advisor\footnote[7]\@advisorinfo\par}%
+	\renewcommand{\thefootnote}{\arabic{footnote}}%
+	\setcounter{footnote}{0}%
 }

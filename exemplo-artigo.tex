@@ -51,14 +51,26 @@
 %\usepackage[alf]{abntcite}
 
 %=======================================================================
+% Informações Pessoais
+%=======================================================================
+\title{Exemplo de Artigo no Padrão da UNISINOS: Versão \LaTeX}
+
+\author{Fulano de Tal}
+\authorinfo{Aluno do curso de Ciência da Computação. Email: fulano@tal.com}
+\degree{Bacharel em Ciência da Computação}
+\course{Curso de Ciência da Computação}
+\address{São Leopoldo}
+\date{2016}
+
+\advisor[Prof. Dr.]{Beltrano da Silva}
+\advisorinfo{Orientador, professor da Unisinos, doutor em Ciência da Computação pela Universidade de Stanford (1995), Mestre em Ciência da Computação pela Universidade de Calcutá (1983). Email: professor@unisinos.br}
+
+%=======================================================================
 % Início do documento.
 %=======================================================================
 \begin{document}
-% Diferentemente do normal, os comandos a seguir devem vir aqui mesmo,
-% e não antes do \begin{document} onde seria o lugar deles. 
-\titulo{Exemplo de Artigo no Padrão da UNISINOS: Versão \LaTeX}
-\autor{Fulano de Tal\footnote{Aluno do curso de Ciência da Computação.  Email: fulano@tal.com}}
-\autor{Beltrano da Silva\footnote{Orientador, professor da Unisinos, doutor em Ciência da Computação pela Universidade de Stanford (1995), Mestre em Ciência da Computação pela Universidade de Calcutá (1983).  Email: professor@unisinos.br}}
+
+\maketitle
 
 %=======================================================================
 % Resumo em Português.
@@ -108,6 +120,8 @@ Como regra geral, use os comandos tradicionais do \LaTeX\ para formatar seu text
 
 Neste capítulo apresentamos alguns exemplos de como colocar figuras e tabelas no seu texto.
 
+A escrita de palavras estrangeiras deve ser feita através da macro ``foreign'', informando o nome do idioma como primeiro argumento. A utilização desta macro é importante para efetuar a hifenização correta, conforme idioma. Por exemplo, você pode escrever a palavra inglesa \foreign{english}{performance}.
+
 \subsection{Ilustrações}
 Aqui são apresentados alguns detalhes sobre o uso de ilustrações.
 
@@ -131,8 +145,10 @@ A Figura~\ref{fig:escrita} ilustra as fases psicológicas da escrita da disserta
 	\end{minipage}
 \end{figure}
 
-\subsubsection{Tabelas}
-A Tabela~\ref{tab:estacoes} é um exemplo de tabela elaborada pelo(a) próprio(a) autor(a).
+\subsubsection{Tabelas e Quadros}
+A Tabela~\ref{tab:estacoes} e o Quadro~\ref{tab:linguagens} são exemplos de tabela e quadro elaborados pelo(a) próprio(a) autor(a). Uma tabela apresenta informações onde há destaque de dados numéricos. Por outro lado, um quadro corresponde simplesmente a uma exibição de dados tabulados.
+
+Além disso, quadros são formados por linhas horizontais e verticais, sendo considerados como elementos fechados. Já as tabelas são classificadas como abertas, pois não possuem linhas verticais.
 
 \begin{table}
 	\caption{Período das estações do ano no Brasil}
@@ -152,6 +168,26 @@ A Tabela~\ref{tab:estacoes} é um exemplo de tabela elaborada pelo(a) próprio(a
 		\fonte{Elaborada pela autora.}
 	\end{minipage}
 \end{table}
+
+\begin{board}
+	\caption{Linguagens de Programação}
+	\label{tab:linguagens}
+	\centering%
+	\begin{minipage}{.35\textwidth}
+		\begin{tabular*}{\textwidth}{|l|l|}
+			\hline
+			\textbf{Nome} & \textbf{Criador}\\
+			\hline
+			C & Dennis Ritchie\\
+			C++ & Bjarne Stroustrup\\
+			Java & James Gosling\\
+			PHP & Rasmus Lerdorf\\
+			JavaScript & Brendan Eich\\
+			\hline
+		\end{tabular*}
+		\fonte{Elaborada pela autora.}
+	\end{minipage}
+\end{board}
 
 \subsection{Resumo}
 O resumo deve conter de 150 a 250 palavras. No resumo não deve haver citações e indica-se que essa seja a última seção do texto a ser escrita. Veja abaixo uma sugestão de organização e exemplo de resumo de \citetexto{Moro11}.
@@ -232,7 +268,7 @@ Não se esqueça de terminar o artigo com uma conclusão. :-)
 % \documentclass, no início do documento.
 %=======================================================================
 \begin{otherlanguage}{english}
-\titulo{The Title in English}
+\othertitle{The Title in English}
 \begin{abstract}
 Este documento apresenta orientações para uso da classe \LaTeX\ de formatação de artigos para a UNISINOS\@.  Ao mesmo tempo, ele serve como exemplo de uso da classe, demonstrando os principais comandos a serem utilizados, e outras orientações mais gerais de uso do \LaTeX.  Adicionalmente, procuramos incluir no documento algumas orientações sobre a escrita da monografia em si, reunindo dicas e recomendações que contribuem para aumentar a qualidade técnica dos trabalhos acadêmicos.  O Resumo deve conter de 150 a 250~palavras e apresentar o objetivo, o método, os resultados e as conclusões do artigo. Deve ser composto por frases concisas e afirmativas. Recomenda-se o uso de parágrafo único. Deve-se usar o verbo na voz ativa e na terceira pessoa do singular.
 \palavraschave{UNISINOS\@.  ABNT\@.  Formatação de documentos.  \LaTeX.}
