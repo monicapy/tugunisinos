@@ -392,6 +392,9 @@
 \newcommand{\authorinfo}[1]{%
 \def\@authorinfo{#1}
 }
+\newcommand{\degree}[1]{%
+\def\@degree{#1}
+}
 \newcommand{\course}[1]{%
 \def\@course{#1}
 }
@@ -421,7 +424,7 @@
 \renewcommand{\maketitle}{%
 	\clearpage%
 	\pagestyle{empty}\pagenumbering{roman}\setcounter{page}{1}%
-	{\noindent\centering\textbf{\MakeUppercase{Universidade do Vale do Rio dos Sinos --- UNISINOS}}\par}%
+	{\noindent\centering\textbf{\MakeUppercase{Universidade do Vale do Rio dos Sinos -- UNISINOS}}\par}%
 	{\noindent\centering\textbf{\MakeUppercase{Unidade Acad\^emica de Gradua\c{c}\~{a}o}}\par}%
 	{\noindent\centering\textbf{\MakeUppercase{\@course}}\par}%
 	\vspace*{2\baselineskip}%
@@ -436,6 +439,8 @@
 	{\noindent\centering\@author\par}%
 	\vspace*{11\baselineskip}%
 	{\noindent\centering\MakeUppercase{\@title}\par}%
+	\vspace*{3\baselineskip}%
+	{\pretolerance=10000\setlength\leftskip{80mm}\noindent{Artigo apresentado como requisito parcial para obten\c{c}\~{a}o do t\'itulo de \@degree\ pelo \@course\ da Universidade do Vale do Rio dos Sinos -- UNISINOS}\par}
 	\vfill%
 	{\noindent\centering\@address\par}%
 	{\noindent\centering\@date\par}%
