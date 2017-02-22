@@ -47,8 +47,8 @@
 \RequirePackage{indentfirst}
 \RequirePackage{setspace}
 \RequirePackage{newfloat}
-\onehalfspacing
 \renewcommand{\familydefault}{\sfdefault}
+\linespread{1.5}
 
 %=======================================================================
 % Comandos para definições principais.
