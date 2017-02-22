@@ -392,6 +392,12 @@
 \newcommand{\authorinfo}[1]{%
 \def\@authorinfo{#1}
 }
+\newcommand{\course}[1]{%
+\def\@course{#1}
+}
+\newcommand{\address}[1]{%
+\def\@address{#1}
+}
 \newcommand{\advisor}[1]{%
 \def\@advisor{#1}
 }
@@ -413,6 +419,16 @@
 
 % Redefinições ---------------------------------------------------------
 \renewcommand{\maketitle}{%
+	\clearpage%
+	\pagestyle{empty}\pagenumbering{roman}\setcounter{page}{1}%
+	{\noindent\centering\textbf{\MakeUppercase{Universidade do Vale do Rio dos Sinos --- UNISINOS}}\par}%
+	{\noindent\centering\textbf{\MakeUppercase{Unidade Acad\^emica de Gradua\c{c}\~{a}o}}\par}%
+	{\noindent\centering\textbf{\MakeUppercase{\@course}}\par}%
+	\vfill%
+	{\noindent\centering\textbf{\@address}\par}%
+	{\noindent\centering\textbf{\@date}\par}%
+	\clearpage%
+	\pagestyle{UNISINOSartigo}\pagenumbering{arabic}\setcounter{page}{1}%
 	\@formattitle{\@title}%
 	\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
 	{\raggedleft\@author\footnote[1]\@authorinfo\par}%
