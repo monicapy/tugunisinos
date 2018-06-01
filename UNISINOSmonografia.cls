@@ -368,7 +368,6 @@
 	\renewenvironment{thebibliography}[1]{%
 		\chapter*{\bibname}
 		\begin{list}{}{
-			% \renewcommand{\makelabel}[1]{}
 			\setlength{\leftmargin}{0em}
 			\sloppy\raggedright\singlespacing%
 		}
